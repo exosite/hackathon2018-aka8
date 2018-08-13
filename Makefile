@@ -1,5 +1,8 @@
 .PHONY: test
 
+deploy:
+	murano syncup
+
 test:
 	rm -f luacov.* && \
 	luacheck . && \

@@ -1,2 +1,2 @@
 --#ENDPOINT GET /tsdb
-return require('controllers.tsdb').get(request)
+response = require('controllers.tsdb').get(request)
