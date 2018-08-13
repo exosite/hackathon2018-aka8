@@ -1,7 +1,7 @@
 import { check, sleep } from "k6";
 import http from "k6/http";
 
-const users = open("device.csv");
+const users = open("./device.csv");
 var devices = JSON.stringify(users).replace(/(?:\\[rn])+/g, "").split(",");
 var aka8 = "https://aka8.apps.exosite.io/";
 var cache = "cache/";
