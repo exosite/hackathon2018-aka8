@@ -1,12 +1,12 @@
 formatversion: 1.0.0
 
 info:
-  name: <template_name>
-  summary: One line summary of <template_name>
+  name: aka8-solution-template
+  summary: One line summary of aka8-solution-template
   description: |
-    In depth description of <template_name>
+    In depth description of aka8-solution-template
     With lots of details.
-  authors: ['Someone <b@someone.com> (http://someone.tumblr.com/)']
+  authors: ['aka8 <aka8@exosite.com> (http://exosite.io/)']
   version: 1.0.0
 
 ####
@@ -36,7 +36,7 @@ endpoints:
   location: endpoints
   include: '**/*.lua'
   exclude: ['*_test.lua', '*_spec.lua']
-  cors: {'origin': ['http://localhost:*']}
+  cors: { 'origin': ['http://localhost:*'] }
 
 modules:
   location: modules
