@@ -35,7 +35,9 @@ info:
 
 basePath: /
 
-host: aka8.apps.exosite.io
+host: { YOUR_SOLUTAION_URL }
+# E.g:
+# host: aka8.apps.exosite.io
 
 paths:
   '/cache/{id}':
