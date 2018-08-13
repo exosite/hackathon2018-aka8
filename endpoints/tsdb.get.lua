@@ -1,3 +1,8 @@
 --#ENDPOINT GET /tsdb
 
-response.message = Tsdb.query(request.parameters)
+local p = request.parameters
+local R = require('moses')
+if R.isString(p.metrics) then
+	p.metrics = {p.metrics}
+end
+response.message = Tsdb.query(p)
