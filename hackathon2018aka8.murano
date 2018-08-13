@@ -10,7 +10,7 @@ info:
   # Longer, multiple paragraph explanation.
   description: |
     In depth description of hackathon2018aka8
-    
+
     With lots of details.
 
   # Who made this
@@ -82,5 +82,3 @@ info:
 
 # The format version of this file. This is required.
 formatversion: 1.0.0
-
-# vim: set et sw=2 ts=2 :

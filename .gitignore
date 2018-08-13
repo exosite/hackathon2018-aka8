@@ -1,2 +1,12 @@
-.murano
+# luacheck
+.luacheckcache
+
+# luacov
+luacov.*
+
+# murano
+.murano/*
+!.murano/config
+
+# vim
 *.swp
