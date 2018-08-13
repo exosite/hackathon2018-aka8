@@ -27,6 +27,7 @@ else
 	o = {
 		avg = v,
 		count = 1,
+		last = v,
 		max = v,
 		min = v,
 		sum = v,

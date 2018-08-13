@@ -3,4 +3,14 @@
 local p = request.parameters
 local id = p.id
 local keys = p.keys
-response.message = Keystore.get({key = id}).value
+local R = require('moses')
+local L = require('lodash')
+
+local output = R.map(Keystore.get({key = id}).value, function(k, v)
+	return k, from_json(v)
+end)
+if keys then
+	keys = L.split(p.keys, ',')
+	output = R.pick(output, keys)
+end
+response.message = output
