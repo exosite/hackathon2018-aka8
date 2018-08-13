@@ -11,18 +11,12 @@ local o = Keystore.command({
 }).value or '{}'
 o = from_json(o)
 
-local count = o.count
-local sum = o.sum
-local avg = o.avg
-local max = o.max
-local min = o.min
-
 if o.last then
-  max = math.max(max, v)
-  min = math.min(min, v)
-  sum = sum + v
-  count = count + 1
-  avg = sum / count
+  o.max = math.max(o.max, v)
+  o.min = math.min(o.min, v)
+  o.sum = o.sum + v
+  o.count = o.count + 1
+  o.avg = o.sum / o.count
 else
 	o = {
 		avg = v,
