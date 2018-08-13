@@ -1,0 +1,22 @@
+{
+  "name": "hamv-mqtt-load-test",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "start": "node --max-old-space-size=4096 index"
+  },
+  "dependencies": {
+    "async-mqtt": "^1.0.1",
+    "csv-load-sync": "^1.0.0",
+    "dotenv": "^4.0.0",
+    "es7-sleep": "^1.0.0",
+    "event-to-promise": "^0.8.0",
+    "log4js": "^2.4.1",
+    "mqtt": "git://github.com/ophentis/MQTT.js.git#custom",
+    "mqtt-packet": "^5.4.0",
+    "process-nextick-args": "^1.0.7",
+    "read-yaml-promise": "^1.0.2",
+    "safe-buffer": "^5.1.1",
+    "uuid": "^3.1.0"
+  }
+}

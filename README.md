@@ -1,4 +1,4 @@
-# Getting Started Solution Template
+# AKA8 Solution Template
 
 This page describes the project structure used to set and update a Murano Solution. Murano templates can be used in two distinct ways:
 - To synchronize an existing Murano solution with a local project folder using the [Murano-CLI](http://docs.exosite.com/development/tools/murano-cli/).
@@ -7,7 +7,7 @@ This page describes the project structure used to set and update a Murano Soluti
 ## Template directories structure
 
 ```
-getting-started-solution-template/
+aka8-solution-template/
 ├── assets/index.html
 ├── endpoints/example.lua
 ├── modules/example.lua
