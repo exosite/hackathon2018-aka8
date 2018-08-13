@@ -28,20 +28,21 @@ else
 	}
 end
 
-Keystore.command({
-  key = id,
-  command = 'hset',
-  args = {
-	  k,
-	  to_json(o),
-  }
-})
-Tsdb.write({
-	tags = {
-		id = id,
-	},
-	metrics = {
-		[k] = v
-	},
-})
-response.message = Keystore.get({key = id}).value
+response.message = {
+	kv = Keystore.command({
+		key = id,
+		command = 'hset',
+		args = {
+			k,
+			to_json(o),
+		}
+	}),
+	tsdb = Tsdb.write({
+		tags = {
+			id = id,
+		},
+		metrics = {
+			[k] = v
+		},
+	})
+}
