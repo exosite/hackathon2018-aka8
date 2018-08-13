@@ -46,5 +46,8 @@ Tsdb.write({
 	tags = {
 		id = id,
 	},
+	metrics = {
+		[k] = v
+	},
 })
 response.message = Keystore.get({key = id}).value
