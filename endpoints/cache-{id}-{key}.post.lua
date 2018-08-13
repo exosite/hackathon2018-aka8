@@ -33,7 +33,7 @@ else
 		sum = v,
 	}
 end
-response.message = o
+
 Keystore.command({
   key = id,
   command = 'hset',
