@@ -1,4 +1,4 @@
---#ENDPOINT GET /cache/{id}/{keys}
+--#ENDPOINT GET /cache/{id}
 
 local p = request.parameters
 local id = p.id
@@ -9,6 +9,4 @@ local L = require('lodash')
 local output = R.map(Keystore.get({key = id}).value, function(k, v)
 	return k, from_json(v)
 end)
-keys = L.split(p.keys, ',')
-output = R.pick(output, keys)
 response.message = output

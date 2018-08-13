@@ -42,4 +42,9 @@ Keystore.command({
 	  to_json(o),
   }
 })
+Tsdb.write({
+	tags = {
+		id = id,
+	},
+})
 response.message = Keystore.get({key = id}).value
