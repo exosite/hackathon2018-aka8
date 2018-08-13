@@ -4,23 +4,23 @@ exclude_files = {
   'modules/libs/moses.lua'
 }
 
-files.endpoints = {
-	globals = {
-		'request',
-		'response',
-	}
+files.routes = {
+  globals = {
+    'request',
+    'response'
+  }
 }
 
 files.spec = {
-	std = '+busted'
+  std = '+busted'
 }
 
 formatter = 'plain'
 
 globals = {
-	'json',
-	'Keystore',
-	'Tsdb',
+  'json',
+  'Keystore',
+  'Tsdb'
 }
 
 std = 'lua51'

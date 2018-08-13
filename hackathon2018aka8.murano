@@ -14,7 +14,9 @@ info:
     With lots of details.
 
   # Who made this
-  authors: ["qimatluo@exosite.com"]
+  authors:
+    - akiratsai@exosite.com
+    - qimatluo@exosite.com
 
   # The version of the Project
   version: 1.0.0
