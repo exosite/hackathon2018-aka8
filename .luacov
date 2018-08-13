@@ -1,5 +1,5 @@
 exclude = {
-  '%./endpoints',
+  '%./routes',
   '%./modules/libs',
   '%./spec'
 }
