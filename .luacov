@@ -1,0 +1,5 @@
+exclude = {
+  '%./routes',
+  '%./modules/libs',
+  '%./spec'
+}

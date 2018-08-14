@@ -1,0 +1,194 @@
+swagger: '2.0'
+
+info:
+  title: 'Solution API: aka8.apps.exosite.io'
+  description: >
+    This is your solutions own custom API. You best get started with one of our
+    many example APIs that are Turn-Key-Solutions for most common IoT problems.
+    From there this solution interface allows you to fine tune what is there to
+    your needs or add new functions that are specific to the business you're
+    building.
+
+
+    Build something great!
+
+
+    In this example customers interfaces such as websites and mobile devices can
+    directly interact with `aka8.apps.exosite.io` to access the APIs defined
+    here.
+
+
+    User registration is the first step and happens in this example via `POST
+    /user/{email}` documented below. From there devices can be added and roles
+    assigned.
+
+
+    #### Documentation
+
+    In future versions it will be also possible for you to change this
+    documentation itself and publish it to your customers via
+    http://aka8.apps.exosite.io/docs`
+  version: v1
+  contact:
+    name: XX XX
+    email: xxxx@xxxx.xxx
+
+basePath: /
+
+host: { YOUR_SOLUTAION_URL }
+# E.g:
+# host: aka8.apps.exosite.io
+
+paths:
+  '/cache/{id}':
+    get:
+      operationId: cacheId
+      summary: get CacheId
+      description: get CacheId
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/cacheId'
+        default:
+          description: Unexpected execution result
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id path parameter
+          type: string
+
+  '/cache/{id}/{key}':
+    post:
+      operationId: cacheIdKey
+      summary: post CacheIdKey
+      description: post CacheIdKey
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/jsonContent'
+        default:
+          description: Unexpected execution result
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id path parameter
+          type: string
+        - name: key
+          in: path
+          required: true
+          description: key path parameter
+          type: string
+        - $ref: '#/parameters/cacheIdKey'
+
+  '/cache/{id}/{keys}':
+    get:
+      operationId: cacheIdKeys
+      summary: get CacheIdKeys
+      description: get CacheIdKeys
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/cacheIdKeys'
+        default:
+          description: Unexpected execution result
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: id path parameter
+          type: string
+        - name: keys
+          in: path
+          required: true
+          description: keys path parameter
+          type: string
+          collectionFormat: csv
+
+  /tsdb:
+    get:
+      operationId: tsdb
+      summary: get Tsdb
+      description: get Tsdb
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/jsonContent'
+        default:
+          description: Unexpected execution result
+      parameters:
+        - $ref: '#/parameters/tsdb'
+
+securityDefinitions: {}
+
+consumes:
+  - application/json
+
+produces:
+  - application/json
+
+schemes:
+  - https
+
+parameters:
+  cacheIdKey:
+    name: body
+    in: body
+    required: false
+    description: Body content
+    schema:
+      $ref: '#/definitions/cacheIdKey'
+
+  json:
+    name: body
+    in: body
+    required: false
+    description: Body content
+    schema:
+      $ref: '#/definitions/jsonContent'
+
+  tsdb:
+    name: query
+    in: query
+    description: Name of the object to fetch
+    required: false
+    type: string
+
+definitions:
+  cacheId:
+    type: object
+    description: JSON content
+    additionalProperties: true
+
+  cacheIdKeys:
+    type: object
+    description: JSON content
+    additionalProperties: true
+
+  cacheIdKey:
+    type:
+      - object
+    additionalProperties: false
+    description: JSON content
+    properties:
+      value:
+        description: JSON content
+        type: number
+    required:
+      - value
+
+  jsonContent:
+    type:
+      - object
+      - 'null'
+      - array
+      - string
+      - number
+      - boolean
+    additionalProperties: true
+    description: JSON content
