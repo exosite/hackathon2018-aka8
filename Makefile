@@ -5,7 +5,7 @@ test: test-pre test-impl test-post
 
 test-impl:
 	rm -f luacov.*
-	busted > busted.xml
+	busted tests > busted.xml
 
 test-post:
 	luacov-console

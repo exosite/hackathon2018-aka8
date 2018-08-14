@@ -11,7 +11,7 @@ files.routes = {
   }
 }
 
-files.spec = {
+files.tests = {
   std = '+busted'
 }
 
