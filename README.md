@@ -2,7 +2,7 @@
 
 # AKA8 Solution Template
 
-**As know as shipData** - An application template in order to cache the aggredated or calculated device data faster and easier. Currently, it will cache the average, maximum, minimum, total count, and summary value for all data in.
+**As know as shipData** - An application template in order to cache the aggregated or calculated device data faster and easier. Currently, it will cache the average, maximum, minimum, total count, and summary value for all data in.
 
 # Contents
 
@@ -149,9 +149,9 @@ Support the function of [TSDB](http://docs.exosite.com/reference/services/tsdb/)
 
 #### Arguments
 
-| Name  | Type   | Description | Required |
-| ----- | ------ | ----------- | :------: |
-| query | String |             |   Yes    |
+| Name  | Type   | Description                                                         | Required |
+| ----- | ------ | --------------------------------------------------------------------| :------: |
+| query | String | See [query](http://docs.exosite.com/reference/services/tsdb/#query) |   Yes    |
 
 #### Example
 
@@ -298,10 +298,10 @@ Get /cache/{id}/humidity
  Get /cache/{id}/temp
 ```
 
-- GetTsdb
+- GetTsdbQuery
 
 ```
-Get /tsdb
+Get /tsdb/{query}
 ```
 
 - PostCacheIdKey_humidity

@@ -14,6 +14,7 @@ class AKA8Test(unittest.TestCase):
         self.CacheIdKey = 'https://aka8.apps.exosite.io/cache/{id}/{key}'
         self.CacheId = 'https://aka8.apps.exosite.io/cache/{id}'
         self.Tsdb = 'https://aka8.apps.exosite.io/tsdb/{query}'
+
         self.headers = {
             'content-type': 'application/json',
         }
@@ -39,7 +40,7 @@ class AKA8Test(unittest.TestCase):
         response = requests.get(
             self.Tsdb.format(query='{"metrics":["H01"], "limit":10}'), headers=self.headers)
         self.assertEqual(response.status_code, 200)
-    
+        
     def test_PostCacheIdKey_humidity(self):
         resp = requests.get(self.CacheIdKeys.format(
             id='qimat', keys='humidity'), headers=self.headers)
@@ -47,6 +48,7 @@ class AKA8Test(unittest.TestCase):
         old_count = dict.get('count')
         old_sum = float(dict.get('sum'))
         data = '{"value":'+self.number+'}'
+
         response = requests.post(self.CacheIdKey.format(
             id='qimat', key='humidity'), headers=self.headers, data=data)
         resp = requests.get(self.CacheIdKeys.format(
@@ -58,14 +60,14 @@ class AKA8Test(unittest.TestCase):
         self.assertEqual(old_count+1, check_count)
         self.assertEqual(check_sum, new_sum)
         self.assertEqual(response.status_code, 200)
-    
+
     def test_PostCacheIdKey_temp(self):
         resp = requests.get(self.CacheIdKeys.format(
             id='qimat', keys='temp'), headers=self.headers)
         dict = ast.literal_eval(resp.content).get('temp')
         old_count = float(dict.get('count'))
         old_sum = float(dict.get('sum'))
-        data = '{"value":'+self.number+'}'
+        data = '{"value":' + self.number + '}'
         response = requests.post(self.CacheIdKey.format(
             id='qimat', key='temp'), headers=self.headers, data=data)
         resp = requests.get(self.CacheIdKeys.format(
