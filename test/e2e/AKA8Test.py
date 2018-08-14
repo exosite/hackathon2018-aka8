@@ -5,7 +5,6 @@ import time
 import unittest
 import xmlrunner
 from random import randint
-from mock import patch
 
 
 class AKA8Test(unittest.TestCase):
