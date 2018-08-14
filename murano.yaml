@@ -33,7 +33,7 @@ assets:
   default_page: index.html
 
 endpoints:
-  location: endpoints
+  location: routes
   include: '**/*.lua'
   exclude: ['*_test.lua', '*_spec.lua']
   cors: {'origin': ['http://localhost:*']}
