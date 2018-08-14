@@ -149,9 +149,9 @@ Support the function of [TSDB](http://docs.exosite.com/reference/services/tsdb/)
 
 #### Arguments
 
-| Name  | Type   | Description | Required |
-| ----- | ------ | ----------- | :------: |
-| query | String |             |   Yes    |
+| Name  | Type   | Description                                                         | Required |
+| ----- | ------ | --------------------------------------------------------------------| :------: |
+| query | String | See [query](http://docs.exosite.com/reference/services/tsdb/#query) |   Yes    |
 
 #### Example
 
