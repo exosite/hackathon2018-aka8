@@ -149,9 +149,9 @@ Support the function of [TSDB](http://docs.exosite.com/reference/services/tsdb/)
 
 #### Arguments
 
-| Name  | Type   | Description | Required |
-| ----- | ------ | ----------- | :------: |
-| query | String |             |   Yes    |
+| Name  | Type   | Description                                                         | Required |
+| ----- | ------ | --------------------------------------------------------------------| :------: |
+| query | String | See [query](http://docs.exosite.com/reference/services/tsdb/#query) |   Yes    |
 
 #### Example
 
@@ -250,7 +250,7 @@ See also the list of [contributors](https://github.com/exosite/hackathon2018-aka
 
 ```shell
 tests/
-├── unitest/
+├── unit/
 ├── e2e/
 |    └── AKA8Test.py
 └── k6/
@@ -298,10 +298,10 @@ Get /cache/{id}/humidity
  Get /cache/{id}/temp
 ```
 
-- GetTsdb
+- GetTsdbQuery
 
 ```
-Get /tsdb
+Get /tsdb/{query}
 ```
 
 - PostCacheIdKey_humidity
