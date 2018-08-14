@@ -298,10 +298,10 @@ Get /cache/{id}/humidity
  Get /cache/{id}/temp
 ```
 
-- GetTsdb
+- GetTsdbQuery
 
 ```
-Get /tsdb
+Get /tsdb/{query}
 ```
 
 - PostCacheIdKey_humidity
