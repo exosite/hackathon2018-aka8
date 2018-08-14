@@ -12,22 +12,22 @@ import string
 import threading
 import os
 import random
+from dotenv import load_dotenv
 import click
 
-applicationDomain = "aka8-demo.apps.exosite.io"
+load_dotenv('.env')
+
+applicationDomain = os.getenv("APPLICATION_DOMAIN")
 http_applicationDomain = "https://{}".format(applicationDomain)
 wss_applicationDomain = "wss://{}".format(applicationDomain)
-
-PRODUCT_ID = "z32h5s5nqhew00000"
-PRODUCT_HOST = "m2.exosite.io"
-host = "{}.{}".format(PRODUCT_ID, PRODUCT_HOST)
-cert = os.path.dirname(os.path.abspath(__file__))+'./csr/trusted.csr'
+host = os.getenv("SOLUTION")
+cert = os.path.dirname(os.path.abspath(__file__))+'/csr/trusted.csr'
 states = {"H00":0,"H01":0,"H02":0,"H03":0,"H04":0,"H06":0,"H0E":0,"H11":0,"H17":0,"H1E":0,"H1F":0,"H20":0,"H21":-32767,"H29":12274}
 device_msg = {"id":0,"response":1,"status":"ok"}
 Device_pwd = "ThisIsCorrectPassword"
-create_thread = 2
-activate_time = 100
-
+create_thread = int(os.getenv("CREATE_THREAD"))
+activate_time = int(os.getenv("ACTIVATE_TIME"))
+create_csv = os.getenv("CREDENTIAL_PATH")
 class MSG():
     def __init__(self):
         self.print_msg = None
@@ -133,7 +133,7 @@ def get_all_csv():
                 for row in reader:
                     two_arr.append([row["device_name"], row["email"]])
 
-    with open("device.csv", 'w', newline='') as csvfile:
+    with open(create_csv, 'w', newline='') as csvfile:
         fieldnames = ['email',"device_name"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -218,9 +218,9 @@ async def activate_device(activate_time):
             except asyncio.TimeoutError:
                 MSG().warn('Websocket Timeout')
                 pass
-            except:
-                MSG().warn('Some error happend')
-                pass
+            # except:
+            #     MSG().warn('Some error happend')
+            #     pass
 
 jobs = []
 
