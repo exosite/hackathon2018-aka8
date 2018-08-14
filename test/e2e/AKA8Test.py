@@ -61,8 +61,12 @@ class AKA8Test(unittest.TestCase):
         self.assertEqual(old_count+1, check_count)
         self.assertEqual(check_sum, new_sum)
         self.assertEqual(response.status_code, 200)
+<<<<<<< HEAD
 
     def test_PostCacheIdKey_temp(self):
+=======
+     def test_PostCacheIdKey_temp(self):
+>>>>>>> Test
         resp = requests.get(self.CacheIdKeys.format(
             id='qimat', keys='temp'), headers=self.headers)
         dict = ast.literal_eval(resp.content).get('temp')
