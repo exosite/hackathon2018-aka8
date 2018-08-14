@@ -1,5 +1,7 @@
 return {
   default = {
-    coverage = true
+    coverage = true,
+    lpath = './modules/?.lua',
+    output = 'junit'
   }
 }
