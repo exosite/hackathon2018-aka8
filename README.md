@@ -7,10 +7,10 @@
 # Contents
 
 - [Features](#features)
-  - [getCacheIdKeys](#getCacheIdKeys)
-  - [getCacheId](#getCacheId)
-  - [getTsdbQuery](#getTsdbQuery)
-  - [postCacheIdKey](#postCacheIdKey)
+  - [getCacheIdKeys](#getcacheidkeys)
+  - [getCacheId](#getcacheid)
+  - [getTsdbQuery](#gettsdbquery)
+  - [postCacheIdKey](#postcacheidkey)
 - [Tech](#tech)
 - [Authors](#authors)
 - [Testing](#testing)
