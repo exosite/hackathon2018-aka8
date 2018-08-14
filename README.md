@@ -249,7 +249,7 @@ See also the list of [contributors](https://github.com/exosite/hackathon2018-aka
 ## Testing
 
 ```shell
-test/
+tests/
 ├── unit/
 ├── e2e/
 |    └── AKA8Test.py
