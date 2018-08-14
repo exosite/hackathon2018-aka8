@@ -14,7 +14,6 @@ class AKA8Test(unittest.TestCase):
         self.CacheIdKey = 'https://aka8.apps.exosite.io/cache/{id}/{key}'
         self.CacheId = 'https://aka8.apps.exosite.io/cache/{id}'
         self.Tsdb = 'https://aka8.apps.exosite.io/tsdb/{query}'
-
         self.headers = {
             'content-type': 'application/json',
         }
