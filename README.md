@@ -7,64 +7,17 @@
 # Contents
 
 - [Features](#features)
-  - [cacheIdKey](#cacheIdKey)
-  - [cacheIdKeys](#cacheIdKeys)
+  - [getCacheIdKeys](#getCacheIdKeys)
   - [getCacheId](#getCacheId)
-  - [tsdb](#tsdb)
+  - [getTsdbQuery](#getTsdbQuery)
+  - [postCacheIdKey](#postCacheIdKey)
 - [Tech](#tech)
 - [Authors](#authors)
 - [Testing](#testing)
 
 ## Features
 
-### cacheIdKey
-
-Enter specific data to a specific device.
-
-#### Arguments
-
-| Name       | Type   | Description             | Required |
-| ---------- | ------ | ----------------------- | :------: |
-| id         | String | Identifier of the keys. |   Yes    |
-| key        | String | The name of the key.    |   Yes    |
-| body       | Object |                         |   Yes    |
-| body.value | Number | The value of the key.   |   Yes    |
-
-#### Example
-
-```lua=
-local ret = aka8.cacheIdKey({
-  id="Test001",
-  key="H01",
-  body={
-    value=100
-  }
-})
-
-return ret
-```
-
-#### Response
-
-| Name   | Type    | Description           |
-| ------ | ------- | --------------------- |
-| status | Integer | [200] success;        |
-| value  | Number  | The calculated result |
-| error  | String  | Error message         |
-
-```json=
-{
-  "kv": {
-    "value": 0
-  },
-  "tsdb": {
-    "status": 204,
-    "status_code": 204
-  }
-}
-```
-
-### cacheIdKeys
+### getCacheIdKeys
 
 Returns specific data for a specific device.
 
@@ -78,7 +31,7 @@ Returns specific data for a specific device.
 #### Example
 
 ```lua=
-local ret = aka8.cacheIdKeys({
+local ret = aka8.getCacheIdKeys({
   {
     id="Test001",
     keys="H01,AAA,Temp"
@@ -125,7 +78,7 @@ return ret
 }
 ```
 
-### cacheId
+### getCacheId
 
 Return the data of the specific id.
 
@@ -138,7 +91,7 @@ Return the data of the specific id.
 #### Example
 
 ```lua=
-local ret = aka8.cacheId({
+local ret = aka8.getCacheId({
   id="Test001"
 })
 
@@ -190,7 +143,7 @@ return ret
 }
 ```
 
-### tsdb
+### getTsdbQuery
 
 Support the function of [TSDB](http://docs.exosite.com/reference/services/tsdb/) service .
 
@@ -203,7 +156,7 @@ Support the function of [TSDB](http://docs.exosite.com/reference/services/tsdb/)
 #### Example
 
 ```lua=
-local ret = aka8.tsdb({
+local ret = aka8.getTsdbQuery({
   query=to_json({
     metrics={
       "H01"
@@ -233,6 +186,53 @@ return ret
     ["2018-08-14T02:30:59.138229+00:00", 28749],
     ["2018-08-14T02:30:58.324533+00:00", 28748]
   ]
+}
+```
+
+### postCacheIdKey
+
+Enter specific data to a specific device.
+
+#### Arguments
+
+| Name       | Type   | Description             | Required |
+| ---------- | ------ | ----------------------- | :------: |
+| id         | String | Identifier of the keys. |   Yes    |
+| key        | String | The name of the key.    |   Yes    |
+| body       | Object |                         |   Yes    |
+| body.value | Number | The value of the key.   |   Yes    |
+
+#### Example
+
+```lua=
+local ret = aka8.postCacheIdKey({
+  id="Test001",
+  key="H01",
+  body={
+    value=100
+  }
+})
+
+return ret
+```
+
+#### Response
+
+| Name   | Type    | Description           |
+| ------ | ------- | --------------------- |
+| status | Integer | [200] success;        |
+| value  | Number  | The calculated result |
+| error  | String  | Error message         |
+
+```json=
+{
+  "kv": {
+    "value": 0
+  },
+  "tsdb": {
+    "status": 204,
+    "status_code": 204
+  }
 }
 ```
 
